@@ -268,9 +268,12 @@ export default function AboutPage() {
               Ready to bring your ideas to life? Let's create something amazing
               together!
             </p>
-            <button className="px-8 py-3 bg-white text-black rounded-full font-semibold hover:bg-yellow-500 hover:text-black transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+            <a
+              href="mailto:dhafaalfrz12@gmail.com"
+              className="inline-block px-8 py-3 bg-white text-black rounded-full font-semibold hover:bg-yellow-500 hover:text-black transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 text-center"
+            >
               Get In Touch
-            </button>
+            </a>
           </GlassCard>
         </div>
       </section>

@@ -2,102 +2,235 @@
 
 import { Typewriter } from "react-simple-typewriter";
 import Skills from "./components/skills";
-import ProjectsSection from "@/app/projects/application/page";
-import DigitalMarketingProjectsSection from "./projects/marketing/page";
+import ProjectsSection from "@/app/components/projectSection";
+import DigitalMarketingProjectsSection from "@/app/components/digitalMarketingSection";
+import { Layers, Mail, ArrowRight, ChevronDown } from "lucide-react";
+import { ReactNode } from "react";
+
+// Helper Component untuk membungkus setiap section agar konsisten
+const SectionWrapper = ({
+  children,
+  className = "",
+}: {
+  children: ReactNode;
+  className?: string;
+}) => (
+  <section className={`py-20 md:py-28 px-6 max-w-6xl mx-auto ${className}`}>
+    {children}
+  </section>
+);
+
+// Helper Component untuk judul section
+const SectionTitle = ({ children }: { children: ReactNode }) => (
+  <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 bg-clip-text text-transparent bg-gradient-to-r from-yellow-300 to-yellow-500">
+    {children}
+  </h2>
+);
+
+// Helper Component untuk subjudul section
+const SectionSubtitle = ({ children }: { children: ReactNode }) => (
+  <p className="text-center text-gray-400 mb-12 max-w-2xl mx-auto">
+    {children}
+  </p>
+);
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen">
+    <div className="bg-black text-white">
       {/* Hero Section */}
-      <section className="max-w-6xl mx-auto px-6 py-10 min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <div className="space-y-4">
-            <span className="text-gray-400 text-lg tracking-wide animate-fadeInUp">
-              Hi there! I’m glad you’re here.
-            </span>
-            <h1 className="text-5xl md:text-7xl font-bold animate-fadeInUp delay-200">
-              I'm Muhammad Dhafa Alfareza
-            </h1>
+      <section className="min-h-screen flex items-center relative bg-black">
+        <div className="max-w-6xl mx-auto px-6 w-full">
+          {/* Menggunakan Flexbox untuk layout 2 kolom di layar besar */}
+          <div className="flex flex-col lg:flex-row gap-16 items-center">
+            {/* Kolom Kiri: Informasi Teks (Lebih dominan) */}
+            <div className="lg:w-3/5 text-center lg:text-left space-y-5 animate-fadeInUp">
+              <span className="text-gray-400 text-lg tracking-wide">
+                Hi there! I’m Muhammad Dhafa Alfareza.
+              </span>
+              <h1 className="text-4xl md:text-6xl font-bold">
+                I Build Digital Experiences
+              </h1>
+              <div className="text-2xl md:text-3xl text-yellow-400 h-16 lg:h-auto">
+                <Typewriter
+                  words={["Web Developer", "Digital Marketing"]}
+                  loop={0}
+                  cursor
+                  cursorStyle="|"
+                  typeSpeed={70}
+                  deleteSpeed={50}
+                  delaySpeed={1500}
+                />
+              </div>
+              <p className="text-gray-300 max-w-xl text-lg leading-relaxed mx-auto lg:mx-0">
+                Every brand has a story. I turn it into a fast, responsive
+                website people enjoy using. Let’s tell yours together.
+              </p>
+              {/* Tombol CTA dengan Ikon */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
+                <a
+                  href="/projects/application"
+                  className="flex items-center justify-center gap-2 px-6 py-3 bg-white text-black font-semibold rounded-full hover:bg-gray-200 transition-transform hover:scale-105"
+                >
+                  <Layers size={18} />
+                  View Projects
+                </a>
+                <a
+                  href="/projects/contact"
+                  className="flex items-center justify-center gap-2 px-6 py-3 border border-white/50 text-white rounded-full hover:bg-white hover:text-black transition-transform hover:scale-105"
+                >
+                  <Mail size={18} />
+                  Contact Me
+                </a>
+              </div>
+            </div>
 
-            <p className="text-gray-300 max-w-3xl text-2xl mb-10 mx-auto leading-relaxed animate-fadeInUp delay-400">
-              Every brand has a story. I turn it into a fast, responsive website
-              people enjoy using. Let’s tell yours together
-            </p>
-            <h2 className="text-2xl md:text-3xl text-yellow-400 animate-fadeInUp delay-300 mb-10">
-              <Typewriter
-                words={["Web Developer", "Digital Marketing"]}
-                loop={0}
-                cursor
-                cursorStyle="|"
-                typeSpeed={70}
-                deleteSpeed={50}
-                delaySpeed={1500}
-              />
-            </h2>
+            {/* Kolom Kanan: Visual/Grafis (Ukuran terkontrol) */}
+            <div className="hidden lg:flex lg:w-2/5 justify-center flex-shrink-0">
+              <div className="w-full max-w-md bg-white/5 rounded-2xl border border-white/10 p-6">
+                {/* Konten SVG Flat Design */}
+                <svg
+                  viewBox="0 0 200 200"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-full h-full"
+                >
+                  {/* ... (kode SVG Anda tetap sama) ... */}
+                  <g opacity="0.5">
+                    <circle fill="#facc15" cx="150" cy="40" r="30" />
+                    <rect
+                      fill="#334155"
+                      x="20"
+                      y="140"
+                      width="50"
+                      height="50"
+                      rx="10"
+                      transform="rotate(15 45 165)"
+                    />
+                  </g>
+                  <g>
+                    <rect
+                      x="10"
+                      y="25"
+                      width="180"
+                      height="150"
+                      rx="15"
+                      fill="#1e293b"
+                      stroke="#334155"
+                      strokeWidth="2"
+                    />
+                    <circle cx="28" cy="42" r="4" fill="#475569" />
+                    <circle cx="44" cy="42" r="4" fill="#475569" />
+                    <circle cx="60" cy="42" r="4" fill="#475569" />
+                  </g>
+                  <g>
+                    <text
+                      x="30"
+                      y="85"
+                      fontFamily="monospace"
+                      fontSize="24"
+                      fill="#facc15"
+                    >
+                      &lt;/&gt;
+                    </text>
+                    <rect
+                      x="30"
+                      y="105"
+                      width="60"
+                      height="8"
+                      rx="4"
+                      fill="#334155"
+                    />
+                    <rect
+                      x="30"
+                      y="125"
+                      width="40"
+                      height="8"
+                      rx="4"
+                      fill="#334155"
+                    />
+                  </g>
+                  <g>
+                    <path
+                      d="M 120 135 L 120 100 L 130 110 L 140 90 L 150 105 L 160 85"
+                      stroke="#facc15"
+                      strokeWidth="4"
+                      fill="none"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                    <rect
+                      x="115"
+                      y="135"
+                      width="55"
+                      height="8"
+                      rx="4"
+                      fill="#334155"
+                    />
+                  </g>
+                </svg>
+              </div>
+            </div>
           </div>
+        </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fadeInUp delay-500">
-            <a
-              href="/projects"
-              className="px-8 py-3 bg-white text-black font-semibold rounded-full hover:bg-gray-200 transition"
-            >
-              View Projects
-            </a>
-            <a
-              href="/contact"
-              className="px-8 py-3 border border-white text-white rounded-full hover:bg-white hover:text-black transition"
-            >
-              Contact Me
-            </a>
-          </div>
+        {/* Indikator Scroll Down */}
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2">
+          <ChevronDown className="w-8 h-8 text-gray-500 animate-bounce" />
         </div>
       </section>
 
-      <section className="py-20 px-6 max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold text-white mb-4 text-center">
-          Web development & Mobile development Projects
-        </h2>
-        <p className="text-center text-gray-400 mb-10 max-w-xl mx-auto">
-          Here are a few highlighted projects that showcase my experience in Web
-          development & Mobile development
-        </p>
+      {/* Skills Section */}
+      <SectionWrapper>
+        <SectionTitle>My Tech Stack & Tools</SectionTitle>
+        <SectionSubtitle>
+          A collection of technologies and tools I use to bring ideas to life,
+          from stunning websites to effective digital campaigns.
+        </SectionSubtitle>
+        <Skills />
+      </SectionWrapper>
 
+      {/* Web & Mobile Projects Section */}
+      <SectionWrapper className="bg-gray-950/30">
+        <SectionTitle>Web & Mobile Development Projects</SectionTitle>
+        <SectionSubtitle>
+          Here are a few highlighted projects that showcase my experience in
+          building modern and responsive applications.
+        </SectionSubtitle>
         <ProjectsSection limit={3} />
-
-        <div className="mt-10 text-center">
+        <div className="mt-12 text-center">
           <a
             href="/projects/application"
-            className="glass px-6 py-3 inline-block rounded-full text-white hover:text-yellow-300 hover:bg-white/10 transition font-medium border border-white/20 backdrop-blur-md"
+            className="group glass px-6 py-3 inline-flex items-center gap-2 rounded-full text-white hover:text-yellow-300 hover:bg-white/10 transition font-medium border border-white/20 backdrop-blur-md"
           >
-            View All Projects →
+            View All Projects{" "}
+            <ArrowRight
+              size={18}
+              className="transition-transform group-hover:translate-x-1"
+            />
           </a>
         </div>
-      </section>
+      </SectionWrapper>
 
-      <section className="mb-14">
-        <Skills />
-      </section>
-
-      <section className="min-h-screen flex flex-col justify-center items-center px-6 max-w-6xl mx-auto text-center">
-        <h2 className="text-3xl font-bold text-white mb-6">
-          Digital Marketing Projects
-        </h2>
-        <p className="text-gray-400 max-w-xl">
-          Here are a few highlighted projects that showcase my experience in
-          Digital marketing
-        </p>
-
+      {/* Digital Marketing Projects Section */}
+      <SectionWrapper>
+        <SectionTitle>Digital Marketing Projects</SectionTitle>
+        <SectionSubtitle>
+          Explore some of my work demonstrating strategic approaches in the
+          world of digital marketing.
+        </SectionSubtitle>
         <DigitalMarketingProjectsSection limit={3} />
-
-        <div className="">
+        <div className="mt-12 text-center">
           <a
             href="/projects/marketing"
-            className="glass px-6 py-3 inline-block rounded-full text-white hover:text-yellow-300 hover:bg-white/10 transition font-medium border border-white/20 backdrop-blur-md"
+            className="group glass px-6 py-3 inline-flex items-center gap-2 rounded-full text-white hover:text-yellow-300 hover:bg-white/10 transition font-medium border border-white/20 backdrop-blur-md"
           >
-            View All Projects →
+            View All Projects{" "}
+            <ArrowRight
+              size={18}
+              className="transition-transform group-hover:translate-x-1"
+            />
           </a>
         </div>
-      </section>
+      </SectionWrapper>
     </div>
   );
 }

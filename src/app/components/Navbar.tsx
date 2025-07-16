@@ -19,7 +19,7 @@ export default function Navbar() {
       ],
     },
     { href: "/projects/aboutme", label: "About me" },
-    { href: "/contact", label: "Contact" },
+    { href: "/projects/contact", label: "Contact" },
   ];
 
   return (
