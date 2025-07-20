@@ -42,7 +42,7 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto px-6 py-10 sm:py-16 w-full">
           <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
             <div className="lg:w-3/5 text-center lg:text-left space-y-6 animate-fadeInUp">
-              <span className="text-gray-400 text-base md:text-2xl sm:text-lg tracking-wide block">
+              <span className="text-gray-400 text-base md:text-xl sm:text-lg tracking-wide block">
                 Hi there! I’m{" "}
                 <strong className="text-white">Muhammad Dhafa Alfareza</strong>.
               </span>
