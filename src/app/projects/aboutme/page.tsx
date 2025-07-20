@@ -82,9 +82,11 @@ const SectionTitle: FC<{ children: React.ReactNode; icon: string }> = ({
   children,
   icon,
 }) => (
-  <div className="flex items-center gap-4 mb-8">
-    <div className="text-3xl">{icon}</div>
-    <h2 className="text-3xl font-bold text-white">{children}</h2>
+  <div className="flex items-center gap-2 sm:gap-4 mb-6 sm:mb-8">
+    <div className="text-2xl sm:text-3xl flex-shrink-0">{icon}</div>
+    <h2 className="text-2xl sm:text-3xl font-bold text-white leading-tight">
+      {children}
+    </h2>
   </div>
 );
 
@@ -94,7 +96,7 @@ const GlassCard: FC<{ children: React.ReactNode; className?: string }> = ({
 }) => (
   <div
     className={`
-    backdrop-blur-lg bg-white/5 border border-white/10 rounded-2xl p-6 
+    backdrop-blur-lg bg-white/5 border border-white/10 rounded-xl sm:rounded-2xl p-4 sm:p-6 
     shadow-2xl hover:shadow-3xl transition-all duration-300 
     hover:bg-yellow-500/10 hover:border-yellow-500/30 group
     ${className}
@@ -106,63 +108,65 @@ const GlassCard: FC<{ children: React.ReactNode; className?: string }> = ({
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-black relative overflow-hidden">
-      {/* Animated Background Elements */}
+    <div className="min-h-[80vh] sm:min-h-screen bg-black relative overflow-hidden">
+      {/* Animated Background Elements - Adjusted for mobile */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-20 w-72 h-72 bg-white/5 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute top-60 right-20 w-96 h-96 bg-white/5 rounded-full blur-3xl animate-pulse delay-700"></div>
-        <div className="absolute bottom-20 left-1/2 w-80 h-80 bg-white/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-10 sm:top-20 left-5 sm:left-20 w-48 sm:w-72 h-48 sm:h-72 bg-white/5 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute top-40 sm:top-60 right-5 sm:right-20 w-60 sm:w-96 h-60 sm:h-96 bg-white/5 rounded-full blur-3xl animate-pulse delay-700"></div>
+        <div className="absolute bottom-10 sm:bottom-20 left-1/2 w-48 sm:w-80 h-48 sm:h-80 bg-white/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
       </div>
 
-      <section className="relative z-10 px-6 py-20 max-w-7xl mx-auto text-white">
-        {/* Hero Section */}
-        <div className="text-center mb-20">
-          <div className="relative inline-block mb-8">
+      <section className="relative z-10 px-4 sm:px-6 py-10 sm:py-20 max-w-7xl mx-auto text-white">
+        {/* Hero Section - Mobile Optimized */}
+        <div className="text-center mb-12 sm:mb-20">
+          <div className="relative inline-block mb-6 sm:mb-8">
             <div className="absolute inset-0 bg-white/20 rounded-full blur-xl opacity-50 animate-pulse"></div>
             <img
               src="/foto_diri.jpg"
               alt="Profile"
-              className="relative w-40 h-40 rounded-full mx-auto border-4 border-white/20 shadow-2xl"
+              className="relative w-28 h-28 sm:w-40 sm:h-40 rounded-full mx-auto border-4 border-white/20 shadow-2xl"
             />
           </div>
 
-          <h1 className="text-6xl font-bold mb-4 text-white">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white leading-tight px-2">
             Muhammad Dhafa Alfareza
           </h1>
 
-          <div className="relative max-w-3xl mx-auto">
-            <p className="text-xl text-gray-300 leading-relaxed">
+          <div className="relative max-w-3xl mx-auto px-4">
+            <p className="text-base sm:text-lg lg:text-xl text-gray-300 leading-relaxed">
               I'm a web developer and digital marketing enthusiast passionate
               about building responsive, beautiful, and performant websites.
             </p>
-            <div className="absolute -inset-4 bg-white/10 rounded-xl blur-xl opacity-50"></div>
+            <div className="absolute -inset-2 sm:-inset-4 bg-white/10 rounded-xl blur-xl opacity-50"></div>
           </div>
         </div>
 
-        {/* Content Grid */}
-        <div className="grid lg:grid-cols-2 gap-12">
+        {/* Content Grid - Mobile First */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Left Column */}
-          <div className="space-y-12">
+          <div className="space-y-8 sm:space-y-12">
             {/* Work Experience */}
             <div>
               <SectionTitle icon="💼">Work Experience</SectionTitle>
-              <div className="space-y-6">
+              <div className="space-y-4 sm:space-y-6">
                 {workExperiences.map((exp, i) => (
                   <GlassCard key={i}>
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4">
-                      <h3 className="text-xl font-bold text-white">
-                        {exp.position}
-                      </h3>
-                      <span className="w-1/2 sm:w-auto min-w-[120px] text-sm px-4 py-1 mt-2 sm:mt-0 text-center rounded-full bg-white/10 border border-white/10 truncate">
-                        {exp.period}
-                      </span>
+                    <div className="space-y-3 sm:space-y-4">
+                      <div className="flex flex-col space-y-2">
+                        <h3 className="text-lg sm:text-xl font-bold text-white leading-tight">
+                          {exp.position}
+                        </h3>
+                        <span className="self-start text-xs sm:text-sm px-3 py-1 rounded-full bg-white/10 border border-white/10">
+                          {exp.period}
+                        </span>
+                      </div>
+                      <h4 className="text-base sm:text-lg font-semibold text-gray-300">
+                        {exp.company}
+                      </h4>
+                      <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
+                        {exp.description}
+                      </p>
                     </div>
-                    <h4 className="text-lg font-semibold text-gray-300 mb-3">
-                      {exp.company}
-                    </h4>
-                    <p className="text-gray-300 leading-relaxed">
-                      {exp.description}
-                    </p>
                   </GlassCard>
                 ))}
               </div>
@@ -174,17 +178,21 @@ export default function AboutPage() {
               <div className="space-y-4">
                 {educations.map((edu, i) => (
                   <GlassCard key={i}>
-                    <h3 className="text-xl font-bold text-white mb-2">
-                      {edu.degree}
-                    </h3>
-                    <div className="flex items-center gap-2">
-                      <span className="text-gray-300 font-semibold">
-                        {edu.institution}
-                      </span>
-                      <span className="text-gray-400">•</span>
-                      <span className="text-sm px-2 py-1 rounded-full bg-white/10 border border-white/10">
-                        {edu.year}
-                      </span>
+                    <div className="space-y-3">
+                      <h3 className="text-lg sm:text-xl font-bold text-white leading-tight">
+                        {edu.degree}
+                      </h3>
+                      <div className="flex flex-col sm:flex-row sm:items-center gap-2">
+                        <span className="text-sm sm:text-base text-gray-300 font-semibold">
+                          {edu.institution}
+                        </span>
+                        <span className="text-gray-400 hidden sm:inline">
+                          •
+                        </span>
+                        <span className="self-start text-xs sm:text-sm px-2 py-1 rounded-full bg-white/10 border border-white/10">
+                          {edu.year}
+                        </span>
+                      </div>
                     </div>
                   </GlassCard>
                 ))}
@@ -193,27 +201,27 @@ export default function AboutPage() {
           </div>
 
           {/* Right Column */}
-          <div>
+          <div className="space-y-8 sm:space-y-12">
             {/* Achievements */}
             <div>
               <SectionTitle icon="🏆">Achievements</SectionTitle>
-              <div className="space-y-6">
+              <div className="space-y-4 sm:space-y-6">
                 {achievements.map((ach, i) => (
                   <GlassCard key={i}>
-                    <div className="flex items-start gap-4">
-                      <div className="flex-shrink-0 w-12 h-12 bg-white text-black rounded-full flex items-center justify-center font-bold">
+                    <div className="flex gap-3 sm:gap-4">
+                      <div className="flex-shrink-0 w-8 h-8 sm:w-12 sm:h-12 bg-white text-black rounded-full flex items-center justify-center font-bold text-sm sm:text-base">
                         {i + 1}
                       </div>
-                      <div className="flex-1">
-                        <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-3">
-                          <h3 className="text-xl font-bold text-white">
+                      <div className="flex-1 min-w-0">
+                        <div className="space-y-2 sm:space-y-3 mb-3">
+                          <h3 className="text-lg sm:text-xl font-bold text-white leading-tight">
                             {ach.title}
                           </h3>
-                          <span className="text-sm px-3 py-1 rounded-full bg-white/10 border border-white/10">
+                          <span className="inline-block text-xs sm:text-sm px-3 py-1 rounded-full bg-white/10 border border-white/10">
                             {ach.year}
                           </span>
                         </div>
-                        <p className="text-gray-300 leading-relaxed">
+                        <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
                           {ach.description}
                         </p>
                       </div>
@@ -224,10 +232,10 @@ export default function AboutPage() {
             </div>
 
             {/* Skills Highlight */}
-            <div className="mt-12">
+            <div>
               <SectionTitle icon="⚡">Skills & Technologies</SectionTitle>
               <GlassCard>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 sm:grid-cols-2 gap-3 sm:gap-4">
                   {[
                     "Laravel",
                     "React",
@@ -246,10 +254,12 @@ export default function AboutPage() {
                   ].map((skill, i) => (
                     <div
                       key={i}
-                      className="flex items-center gap-3 p-3 rounded-lg bg-white/5 border border-white/10 hover:bg-yellow-500/10 hover:border-yellow-500/30 transition-all duration-300"
+                      className="flex items-center gap-2 sm:gap-3 p-2 sm:p-3 rounded-lg bg-white/5 border border-white/10 hover:bg-yellow-500/10 hover:border-yellow-500/30 transition-all duration-300"
                     >
-                      <div className="w-2 h-2 bg-white rounded-full"></div>
-                      <span className="text-sm font-medium">{skill}</span>
+                      <div className="w-2 h-2 bg-white rounded-full flex-shrink-0"></div>
+                      <span className="text-xs sm:text-sm font-medium truncate">
+                        {skill}
+                      </span>
                     </div>
                   ))}
                 </div>
@@ -258,19 +268,19 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* Call to Action */}
-        <div className="text-center mt-20">
-          <GlassCard className="inline-block">
-            <h3 className="text-2xl font-bold mb-4 text-white">
+        {/* Call to Action - Mobile Optimized */}
+        <div className="text-center mt-12 sm:mt-20">
+          <GlassCard>
+            <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-white">
               Let's Work Together
             </h3>
-            <p className="text-gray-300 mb-6">
+            <p className="text-sm sm:text-base text-gray-300 mb-4 sm:mb-6">
               Ready to bring your ideas to life? Let's create something amazing
               together!
             </p>
             <a
               href="mailto:dhafaalfrz12@gmail.com"
-              className="inline-block px-8 py-3 bg-white text-black rounded-full font-semibold hover:bg-yellow-500 hover:text-black transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 text-center"
+              className="inline-block w-full sm:w-auto px-6 sm:px-8 py-3 bg-white text-black rounded-full font-semibold hover:bg-yellow-500 hover:text-black transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 text-center text-sm sm:text-base"
             >
               Get In Touch
             </a>

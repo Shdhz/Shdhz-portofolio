@@ -41,14 +41,17 @@ export default function HomePage() {
       <section className="min-h-[80vh] sm:min-h-screen flex items-center relative bg-black">
         <div className="max-w-6xl mx-auto px-6 py-10 sm:py-16 w-full">
           <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
-            <div className="lg:w-3/5 text-center lg:text-left space-y-5 animate-fadeInUp">
-              <span className="text-gray-400 text-lg tracking-wide">
-                Hi there! I’m Muhammad Dhafa Alfareza.
+            <div className="lg:w-3/5 text-center lg:text-left space-y-6 animate-fadeInUp">
+              <span className="text-gray-400 text-base md:text-2xl sm:text-lg tracking-wide block">
+                Hi there! I’m{" "}
+                <strong className="text-white">Muhammad Dhafa Alfareza</strong>.
               </span>
-              <h1 className="text-4xl md:text-6xl font-bold">
+
+              <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold leading-tight text-white">
                 I Build Digital Experiences
               </h1>
-              <div className="text-2xl md:text-3xl text-yellow-400 h-16 lg:h-auto">
+
+              <div className="text-xl sm:text-2xl md:text-3xl text-yellow-400 font-medium">
                 <Typewriter
                   words={["Web Developer", "Digital Marketing"]}
                   loop={0}
