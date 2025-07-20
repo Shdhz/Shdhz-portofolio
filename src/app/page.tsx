@@ -38,11 +38,9 @@ export default function HomePage() {
   return (
     <div className="bg-black text-white">
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center relative bg-black">
-        <div className="max-w-6xl mx-auto px-6 w-full">
-          {/* Menggunakan Flexbox untuk layout 2 kolom di layar besar */}
-          <div className="flex flex-col lg:flex-row gap-16 items-center">
-            {/* Kolom Kiri: Informasi Teks (Lebih dominan) */}
+      <section className="min-h-[80vh] sm:min-h-screen flex items-center relative bg-black">
+        <div className="max-w-6xl mx-auto px-6 py-10 sm:py-16 w-full">
+          <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
             <div className="lg:w-3/5 text-center lg:text-left space-y-5 animate-fadeInUp">
               <span className="text-gray-400 text-lg tracking-wide">
                 Hi there! I’m Muhammad Dhafa Alfareza.
@@ -170,11 +168,6 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Indikator Scroll Down */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2">
-          <ChevronDown className="w-8 h-8 text-gray-500 animate-bounce" />
         </div>
       </section>
 

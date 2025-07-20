@@ -7,7 +7,7 @@ export default function Skills() {
           Techstack
         </h2>
 
-        <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-10 gap-x-2 gap-y-6 justify-center">
+        <div className="grid grid-cols-3 sm:grid-cols-2 md:grid-cols-8 gap-3 sm:gap-2 md:gap-6 place-items-center">
           {[
             {
               // React icon
@@ -263,11 +263,11 @@ export default function Skills() {
             <div
               key={tech.id || index}
               className="flex flex-col items-center justify-center text-center
-              p-2 rounded-lg bg-white/10 backdrop-blur-md
+              p-3 rounded-lg bg-white/10 backdrop-blur-md
               shadow-md hover:shadow-lg hover:scale-105 transition 
               duration-300 ease-in-out text-white
-              w-22 h-22"
-            >
+              w-20 h-20 sm:w-24 sm:h-24"
+                    >
               {tech.icon}
             </div>
           ))}
