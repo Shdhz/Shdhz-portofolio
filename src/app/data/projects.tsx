@@ -9,6 +9,16 @@ export type Project = {
 
 export const allProjects: Project[] = [
   {
+    id: 0,
+    title: "ASN Day Digital Raffle & Attendance System",
+    description:
+      "A web-based raffle and attendance system developed for the ASN Day event in Tasikmalaya City. The system enables participant attendance recording, real-time raffle drawing, and automated winner selection, supporting over 1,000 active users during the event.",
+    image: "/website_asn.png",
+    link: "https://asn-day.tasikmalayakota.go.id",
+    technologies: ["Laravel", "Livewire", "Tailwind CSS"],
+  },
+
+  {
     id: 1,
 
     title: "BUMDes Digitalization & MSME Empowerment Program",
@@ -18,9 +28,9 @@ export const allProjects: Project[] = [
 
     image: "/website-bumdes.png",
 
-    link: "",
+    link: "https://sumberjaya-bagjawaluya.com/",
 
-    technologies: ["React", "Laravel", "Tailwind", "MySql"],
+    technologies: ["React Js", "Laravel", "Tailwind", "MySql"],
   },
 
   {

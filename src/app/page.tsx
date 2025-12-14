@@ -66,7 +66,6 @@ export default function HomePage() {
                 Every brand has a story. I turn it into a fast, responsive
                 website people enjoy using. Let’s tell yours together.
               </p>
-              {/* Tombol CTA dengan Ikon */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
                 <a
                   href="/projects/application"
@@ -85,16 +84,14 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Kolom Kanan: Visual/Grafis (Ukuran terkontrol) */}
+
             <div className="hidden lg:flex lg:w-2/5 justify-center flex-shrink-0">
               <div className="w-full max-w-md bg-white/5 rounded-2xl border border-white/10 p-6">
-                {/* Konten SVG Flat Design */}
                 <svg
                   viewBox="0 0 200 200"
                   xmlns="http://www.w3.org/2000/svg"
                   className="w-full h-full"
                 >
-                  {/* ... (kode SVG Anda tetap sama) ... */}
                   <g opacity="0.5">
                     <circle fill="#facc15" cx="150" cy="40" r="30" />
                     <rect

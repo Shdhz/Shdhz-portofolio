@@ -21,9 +21,16 @@ interface Achievement {
 
 const workExperiences: WorkExperience[] = [
   {
+    company: "DisKominfo Kota Tasikmalaya",
+    position: "Software Developer Intern",
+    period: "August 2025 - November 2025",
+    description:
+      "Contributed to the development and customization of the SIMGOS application to support operational needs of public health centers (Puskesmas). Developed a web-based attendance system integrated with a digital raffle feature for the ASN Day event, successfully supporting real-time participation of over 1,000 users. Assisted in technical preparation and on-site socialization of BIMTEK (technical guidance) events for applications developed by the Diskominfo team, ensuring smooth adoption by stakeholders.",
+  },
+  {
     company: "BUMDes Bagja Waluya",
     position: "Project Lead & System Designer",
-    period: "2025 - Present",
+    period: "July 2025 - September 2025",
     description:
       "Led digital transformation for the village enterprise with a custom Laravel + React web app. Designed dashboards, financial reporting, and booking system for business units.",
   },
@@ -53,8 +60,8 @@ const workExperiences: WorkExperience[] = [
 const educations: Education[] = [
   {
     institution: "Bina Sarana Informatika College",
-    degree: "Information Systems, GPA: 4.00",
-    year: "Ongoing (4th Semester)",
+    degree: "Information Systems",
+    year: "Ongoing (5th Semester)",
   },
   {
     institution: "SMK Daarul Abroor",
